@@ -16,7 +16,7 @@ export default function UserProvider({ children }: UserProviderProps) {
   }
   const login = async (username: string, password: string) => {
     try {
-      const user = await post<Credential, User>("/api/auth/login", {
+      const user = await post<Credential, User>(`${API_HOST}/api/auth/login`, {
         username,
         password,
       });
@@ -34,10 +34,13 @@ export default function UserProvider({ children }: UserProviderProps) {
 
   const register = async (username: string, password: string) => {
     try {
-      const user = await post<Credential, User>("/api/auth/register", {
-        username,
-        password,
-      });
+      const user = await post<Credential, User>(
+        `${API_HOST}/api/auth/register`,
+        {
+          username,
+          password,
+        }
+      );
       setUser(user);
       setToken(user.token);
       return true;
