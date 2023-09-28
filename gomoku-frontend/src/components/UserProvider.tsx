@@ -2,7 +2,7 @@ import { User, Credential } from "../types";
 import { UserContext } from "../context";
 import { userLocalStorage } from "../hooks";
 import { post, setToken } from "../utils/http";
-// import { API_HOST } from "../constants";
+import { API_HOST } from "../constants";
 
 type UserProviderProps = {
   children: React.ReactNode;
